@@ -57,6 +57,15 @@ app.post("/api/users/:_id/exercises", (req, res) => {
   });
 });
 
+app.get("/api/users", (req, res) => {
+  res.json(
+    users.map((user) => ({
+      username: user.username,
+      _id: user._id,
+    }))
+  );
+});
+
 // Get user log
 app.get("/api/users/:_id/logs", (req, res) => {
   const userId = req.params._id;
